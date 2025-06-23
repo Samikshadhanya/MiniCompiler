@@ -1,0 +1,120 @@
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 224 71% 4%;
+    --foreground: 213 31% 91%;
+
+    --card: 224 71% 4%;
+    --card-foreground: 213 31% 91%;
+
+    --popover: 224 71% 4%;
+    --popover-foreground: 213 31% 91%;
+
+    --primary: 210 40% 98%;
+    --primary-foreground: 222.2 47.4% 11.2%;
+
+    --secondary: 222.2 47.4% 11.2%;
+    --secondary-foreground: 210 40% 98%;
+
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+
+    --accent: 217.2 32.6% 17.5%;
+    --accent-foreground: 210 40% 98%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 224.3 76.3% 48%;
+
+    --radius: 0.5rem;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+}
+
+.code-editor {
+  font-family: 'Fira Code', monospace;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.phase-card {
+  transition: all 0.3s ease;
+}
+
+.phase-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
+}
+
+.compilation-flow-line {
+  position: absolute;
+  width: 2px;
+  background: linear-gradient(to bottom, #6366f1, #8b5cf6);
+  transform: translateX(-50%);
+  z-index: -1;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+.active-phase {
+  animation: pulse 2s infinite;
+  border-color: #8b5cf6;
+  border-width: 2px;
+}
+
+.token {
+  border-radius: 4px;
+  padding: 0 4px;
+  margin: 0 2px;
+  display: inline-block;
+}
+
+.token-keyword {
+  background-color: rgba(99, 102, 241, 0.2);
+  color: #818cf8;
+}
+
+.token-identifier {
+  color: #e2e8f0;
+}
+
+.token-operator {
+  color: #f472b6;
+}
+
+.token-number {
+  color: #34d399;
+}
+
+.token-string {
+  color: #fbbf24;
+}
+
+.token-comment {
+  color: #64748b;
+  font-style: italic;
+}
